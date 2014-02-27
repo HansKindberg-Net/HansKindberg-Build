@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<PropertyGroup xdt:Transform="Insert">
+		<!--
+			***************************************************************************************
+			
+			Previous elements are from HansKindberg-Xml-Transformation-On-Build.props
+			
+			Next elements are from HansKindberg-On-Build.Transform.props
+			
+			***************************************************************************************
+		-->
+	</PropertyGroup>
+	<PropertyGroup xdt:Transform="Insert">
+		<MessageImportance Condition="$(MessageImportance) == ''">high</MessageImportance>
+	</PropertyGroup>
+</Project>

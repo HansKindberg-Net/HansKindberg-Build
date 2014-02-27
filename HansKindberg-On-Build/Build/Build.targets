@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="..\..\Build\Build.targets" />
+	<Target Name="BeforeBuild">
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Target 'BeforeBuildPackage': Transforming '$(HansKindbergXmlTransformationBuildPropertiesFile)' with 'Build\HansKindberg-On-Build.Transform.props' to 'Build\HansKindberg-On-Build.props'."
+		/>
+		<TransformXml
+			Destination="Build\HansKindberg-On-Build.props"
+			Source="$(HansKindbergXmlTransformationBuildPropertiesFile)"
+			Transform="Build\HansKindberg-On-Build.Transform.props"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Target 'BeforeBuildPackage': Transforming '$(HansKindbergXmlTransformationBuildTargetsFile)' with 'Build\HansKindberg-On-Build.Transform.targets' to 'Build\HansKindberg-On-Build.targets'."
+		/>
+		<TransformXml
+			Destination="Build\HansKindberg-On-Build.targets"
+			Source="$(HansKindbergXmlTransformationBuildTargetsFile)"
+			Transform="Build\HansKindberg-On-Build.Transform.targets"
+		/>
+	</Target>
+</Project>

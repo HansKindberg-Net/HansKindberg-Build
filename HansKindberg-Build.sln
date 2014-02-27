@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{78A7280C-CC67-45DC-AFCA-2D28427D1383}"
+	ProjectSection(SolutionItems) = preProject
+		Properties\Solution-AssemblyInfo.cs = Properties\Solution-AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{1FFBD562-5B05-4D03-8238-B4697C7A1831}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.md = ReadMe.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg-On-Build", "HansKindberg-On-Build\HansKindberg-On-Build.csproj", "{E2278868-644C-43BD-B801-E8DCD4343889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HansKindberg-Build-Files", "HansKindberg-Build-Files\HansKindberg-Build-Files.csproj", "{B0254A7B-4DF0-4AB1-B6FF-0DE0D32064DE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E2278868-644C-43BD-B801-E8DCD4343889} = {E2278868-644C-43BD-B801-E8DCD4343889}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{01A4AE28-003E-404A-8725-AA511698537D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.config = .nuget\NuGet.config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{DAE565D0-D5D2-4334-8807-50F41BC274CD}"
+	ProjectSection(SolutionItems) = preProject
+		Build\Build.props = Build\Build.props
+		Build\Build.targets = Build\Build.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2278868-644C-43BD-B801-E8DCD4343889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2278868-644C-43BD-B801-E8DCD4343889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2278868-644C-43BD-B801-E8DCD4343889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2278868-644C-43BD-B801-E8DCD4343889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0254A7B-4DF0-4AB1-B6FF-0DE0D32064DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0254A7B-4DF0-4AB1-B6FF-0DE0D32064DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0254A7B-4DF0-4AB1-B6FF-0DE0D32064DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0254A7B-4DF0-4AB1-B6FF-0DE0D32064DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
