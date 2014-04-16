@@ -1,0 +1,1 @@
+﻿https://github.com/HansKindberg-Net/HansKindberg-Build#2-hanskindberg-build-content

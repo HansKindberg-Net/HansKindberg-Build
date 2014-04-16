@@ -11,7 +11,8 @@ testresults/
 *.user
 .nuget/NuGet.exe
 
-HansKindberg-On-Build/Build/HansKindberg-On-Build.props
-HansKindberg-On-Build/Build/HansKindberg-On-Build.targets
+HansKindberg-Build/Build/HansKindberg-Build.props
+HansKindberg-Build/Build/HansKindberg-Build.targets
+HansKindberg-Build/Build/*.dll
 
 !packages/repositories.config

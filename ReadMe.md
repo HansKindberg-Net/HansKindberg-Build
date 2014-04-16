@@ -1,4 +1,20 @@
 # HansKindberg-Build
+
+## IMPORTANT
+
+The projects/packages in this repository are renamed and refactored. Close the previous packages at nuget.org:
+- HansKindberg-On-Build
+- HansKindberg-Build-Files
+
+The new names are:
+- HansKindberg-Build
+- HansKindberg-Build-Content
+
+When the refactoring is done. Remove this repository and add it again so we begin from scratch.
+
+
+
+
 This is a solution for transforming xml-files/configuration-files on build and copying files to the target-directory by using the following **NuGet** functionality:
 
 - [**Automatic import of msbuild targets and props files**](http://docs.nuget.org/docs/release-notes/nuget-2.5#Automatic_import_of_msbuild_targets_and_props_files)

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="..\..\Build\Package-Build.targets" />
+	<PropertyGroup>
+		<BuildDependsOn>
+			CopyReferencedAssemblies;
+			TransformBuildFiles;
+			$(BuildDependsOn)
+		</BuildDependsOn>
+	</PropertyGroup>
+	<Target Name="CopyReferencedAssemblies">
+		<ItemGroup>
+			<_ReferencedAssembly Include="$(HansKindbergBuildXmlTransformationContentDirectory)build\**\*.dll" />
+		</ItemGroup>
+		<Copy
+			DestinationFiles="@(_ReferencedAssembly->'Build\%(RecursiveDir)%(Filename)%(Extension)')"
+			SourceFiles="@(_ReferencedAssembly)"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Copying '%(_ReferencedAssembly.Identity)' to 'Build\%(_ReferencedAssembly.RecursiveDir)%(_ReferencedAssembly.Filename)%(_ReferencedAssembly.Extension)'."
+		/>
+	</Target>
+	<Target Name="TransformBuildFiles">
+		<TransformXml
+			Destination="Build\HansKindberg-Build.props"
+			Source="$(HansKindbergBuildXmlTransformationPropertiesFile)"
+			Transform="Build\HansKindberg-Build.Transform.props"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Transformed '$(HansKindbergBuildXmlTransformationPropertiesFile)' using 'Build\HansKindberg-Build.Transform.props' into 'Build\HansKindberg-Build.props'."
+		/>
+		<TransformXml
+			Destination="Build\HansKindberg-Build.targets"
+			Source="$(HansKindbergBuildXmlTransformationTargetsFile)"
+			Transform="Build\HansKindberg-Build.Transform.targets"
+		/>
+		<Message
+			Importance="$(MessageImportance)"
+			Text="Transformed '$(HansKindbergBuildXmlTransformationTargetsFile)' using 'Build\HansKindberg-Build.Transform.targets' into 'Build\HansKindberg-Build.targets'."
+		/>
+	</Target>
+</Project>
