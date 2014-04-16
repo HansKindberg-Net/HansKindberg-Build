@@ -2,11 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<Import Project="..\..\Build\Package-Build.targets" />
 	<PropertyGroup>
-		<BuildDependsOn>
+		<CreateNuGetPackageDependsOn>
+			$(CreateNuGetPackageDependsOn);
 			CopyReferencedAssemblies;
-			TransformBuildFiles;
-			$(BuildDependsOn)
-		</BuildDependsOn>
+			TransformBuildFiles
+		</CreateNuGetPackageDependsOn>
 	</PropertyGroup>
 	<Target Name="CopyReferencedAssemblies">
 		<ItemGroup>

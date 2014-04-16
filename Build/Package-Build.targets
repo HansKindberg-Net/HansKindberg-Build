@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<BuildDependsOn>
 			RestorePackages;
-			CreateNuGetPackage;
+			CreateNuGetPackage
 		</BuildDependsOn>
 	</PropertyGroup>
 	<Target Name="Build" DependsOnTargets="$(BuildDependsOn)" />
