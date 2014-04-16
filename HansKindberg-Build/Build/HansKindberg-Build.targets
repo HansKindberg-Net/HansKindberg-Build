@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<Import Project="HansKindberg-Build-XmlTransformation.targets" />
-	<PropertyGroup xdt:Transform="Insert">
+	<PropertyGroup>
 		<BuildDependsOn>
 			$(BuildDependsOn);
 			CopyFilesToTargetDirectory
 		</BuildDependsOn>
 	</PropertyGroup>
-	<PropertyGroup xdt:Transform="Insert">
+	<PropertyGroup>
 		<CopyFilesToTargetDirectoryDependsOn>
 			BeforeCopyFilesToTargetDirectory;
 			CoreCopyFilesToTargetDirectory;
@@ -15,18 +15,16 @@
 		</CopyFilesToTargetDirectoryDependsOn>
 		<CoreCopyFilesToTargetDirectoryDependsOn />
 	</PropertyGroup>
-	<Target Name="AfterCopyFilesToTargetDirectory" xdt:Transform="Insert" />
-	<Target Name="BeforeCopyFilesToTargetDirectory" xdt:Transform="Insert" />
+	<Target Name="AfterCopyFilesToTargetDirectory" />
+	<Target Name="BeforeCopyFilesToTargetDirectory" />
 	<Target
 		Name="CopyFilesToTargetDirectory"
 		DependsOnTargets="$(CopyFilesToTargetDirectoryDependsOn)"
-		xdt:Transform="Insert"
 	/>
 	<Target
 		Name="CoreCopyFilesToTargetDirectory"
 		Condition="Exists($(OutDir)) AND @(FileToCopyToTargetDirectory) != ''"
 		DependsOnTargets="$(CoreCopyFilesToTargetDirectoryDependsOn)"
-		xdt:Transform="Insert"
 	>
 		<Message
 			Condition="!Exists('$(OutDir)%(RecursiveDir)%(Filename)%(Extension)') OR $([System.DateTime]::Parse('%(ModifiedTime)').Ticks) > $([System.IO.File]::GetLastWriteTime('$(OutDir)%(RecursiveDir)%(Filename)%(Extension)').Ticks)"
