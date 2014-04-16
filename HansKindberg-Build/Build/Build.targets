@@ -4,41 +4,20 @@
 	<PropertyGroup>
 		<CreateNuGetPackageDependsOn>
 			$(CreateNuGetPackageDependsOn);
-			CopyReferencedAssemblies;
-			TransformBuildFiles
+			CopyHansKindbergBuildXmlTransformationContent
 		</CreateNuGetPackageDependsOn>
 	</PropertyGroup>
-	<Target Name="CopyReferencedAssemblies">
+	<Target Name="CopyHansKindbergBuildXmlTransformationContent">
 		<ItemGroup>
-			<_ReferencedAssembly Include="$(HansKindbergBuildXmlTransformationContentDirectory)build\**\*.dll" />
+			<_HansKindbergBuildXmlTransformationContent Include="$(HansKindbergBuildXmlTransformationContentDirectory)build\**\*.*" />
 		</ItemGroup>
 		<Copy
-			DestinationFiles="@(_ReferencedAssembly->'Build\%(RecursiveDir)%(Filename)%(Extension)')"
-			SourceFiles="@(_ReferencedAssembly)"
+			DestinationFiles="@(_HansKindbergBuildXmlTransformationContent->'Build\%(RecursiveDir)%(Filename)%(Extension)')"
+			SourceFiles="@(_HansKindbergBuildXmlTransformationContent)"
 		/>
 		<Message
 			Importance="$(MessageImportance)"
-			Text="Copying '%(_ReferencedAssembly.Identity)' to 'Build\%(_ReferencedAssembly.RecursiveDir)%(_ReferencedAssembly.Filename)%(_ReferencedAssembly.Extension)'."
-		/>
-	</Target>
-	<Target Name="TransformBuildFiles">
-		<TransformXml
-			Destination="Build\HansKindberg-Build.props"
-			Source="$(HansKindbergBuildXmlTransformationPropertiesFile)"
-			Transform="Build\HansKindberg-Build.Transform.props"
-		/>
-		<Message
-			Importance="$(MessageImportance)"
-			Text="Transformed '$(HansKindbergBuildXmlTransformationPropertiesFile)' using 'Build\HansKindberg-Build.Transform.props' into 'Build\HansKindberg-Build.props'."
-		/>
-		<TransformXml
-			Destination="Build\HansKindberg-Build.targets"
-			Source="$(HansKindbergBuildXmlTransformationTargetsFile)"
-			Transform="Build\HansKindberg-Build.Transform.targets"
-		/>
-		<Message
-			Importance="$(MessageImportance)"
-			Text="Transformed '$(HansKindbergBuildXmlTransformationTargetsFile)' using 'Build\HansKindberg-Build.Transform.targets' into 'Build\HansKindberg-Build.targets'."
+			Text="Copying '%(_HansKindbergBuildXmlTransformationContent.Identity)' to 'Build\%(_HansKindbergBuildXmlTransformationContent.RecursiveDir)%(_HansKindbergBuildXmlTransformationContent.Filename)%(_HansKindbergBuildXmlTransformationContent.Extension)'."
 		/>
 	</Target>
 </Project>

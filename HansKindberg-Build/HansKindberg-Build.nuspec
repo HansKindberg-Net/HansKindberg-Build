@@ -11,9 +11,7 @@
 		<version>$Version$</version>
 	</metadata>
 	<files>
-		<file src="Build\HansKindberg-Build.props" target="build" />
-		<file src="Build\HansKindberg-Build.targets" target="build" />
-		<file src="Build\**\*.dll" target="build" />
+		<file src="Build\**\*.*" exclude="..\HansKindberg-Build\Build\Build.props;..\HansKindberg-Build\Build\Build.targets" target="build" />
 		<file src="ReadMe.txt" />
 	</files>
 </package>

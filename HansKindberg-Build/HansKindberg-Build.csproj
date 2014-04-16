@@ -34,8 +34,8 @@
 	<ItemGroup>
 		<None Include="Build\Build.props" />
 		<None Include="Build\Build.targets" />
-		<None Include="Build\HansKindberg-Build.Transform.props" />
-		<None Include="Build\HansKindberg-Build.Transform.targets" />
+		<None Include="Build\HansKindberg-Build.props" />
+		<None Include="Build\HansKindberg-Build.targets" />
 		<None Include="HansKindberg-Build.nuspec" />
 		<None Include="packages.config" />
 		<None Include="ReadMe.txt" />
