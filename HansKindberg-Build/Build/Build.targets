@@ -7,17 +7,24 @@
 			CopyHansKindbergBuildXmlTransformationContent
 		</CreateNuGetPackageDependsOn>
 	</PropertyGroup>
-	<Target Name="CopyHansKindbergBuildXmlTransformationContent">
-		<ItemGroup>
-			<_HansKindbergBuildXmlTransformationContent Include="$(HansKindbergBuildXmlTransformationContentDirectory)build\**\*.*" />
+	<Target Name="CollectHansKindbergBuildXmlTransformationContent">
+		<ItemGroup Condition="@(HansKindbergBuildXmlTransformationContent) == ''">
+			<HansKindbergBuildXmlTransformationContent Include="$(HansKindbergBuildXmlTransformationContentDirectory)build\**\*.*" />
 		</ItemGroup>
+	</Target>
+	<PropertyGroup>
+		<CopyHansKindbergBuildXmlTransformationContentDependsOn>
+			CollectHansKindbergBuildXmlTransformationContent
+		</CopyHansKindbergBuildXmlTransformationContentDependsOn>
+	</PropertyGroup>
+	<Target Name="CopyHansKindbergBuildXmlTransformationContent" DependsOnTargets="$(CopyHansKindbergBuildXmlTransformationContentDependsOn)">
 		<Copy
-			DestinationFiles="@(_HansKindbergBuildXmlTransformationContent->'Build\%(RecursiveDir)%(Filename)%(Extension)')"
-			SourceFiles="@(_HansKindbergBuildXmlTransformationContent)"
+			DestinationFiles="@(HansKindbergBuildXmlTransformationContent->'Build\%(RecursiveDir)%(Filename)%(Extension)')"
+			SourceFiles="@(HansKindbergBuildXmlTransformationContent)"
 		/>
 		<Message
 			Importance="$(MessageImportance)"
-			Text="Copying '%(_HansKindbergBuildXmlTransformationContent.Identity)' to 'Build\%(_HansKindbergBuildXmlTransformationContent.RecursiveDir)%(_HansKindbergBuildXmlTransformationContent.Filename)%(_HansKindbergBuildXmlTransformationContent.Extension)'."
+			Text="Copying '%(HansKindbergBuildXmlTransformationContent.Identity)' to 'Build\%(HansKindbergBuildXmlTransformationContent.RecursiveDir)%(HansKindbergBuildXmlTransformationContent.Filename)%(HansKindbergBuildXmlTransformationContent.Extension)'."
 		/>
 	</Target>
 </Project>
